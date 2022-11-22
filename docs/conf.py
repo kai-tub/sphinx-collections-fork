@@ -29,7 +29,7 @@ author = 'team useblocks'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinxcontrib.collections'
+    'sphinx_collections_fork'
 ]
 
 
@@ -38,8 +38,8 @@ def my_func(config):
     return string
 
 
-from sphinxcontrib.collections.drivers import Driver
-from sphinxcontrib.collections.api import register_driver
+from sphinx_collections_fork.drivers import Driver
+from sphinx_collections_fork.api import register_driver
 
 
 class myDriver(Driver):

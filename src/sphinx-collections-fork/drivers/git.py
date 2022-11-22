@@ -32,7 +32,7 @@ from shutil import rmtree
 
 from git import Repo
 
-from sphinxcontrib.collections.drivers import Driver
+from sphinx_collections_fork.drivers import Driver
 
 
 class GitDriver(Driver):

@@ -1,0 +1,4 @@
+- [ ] Get the first test running just to see if `copy_folder` works as expected
+- [ ] Once that is done, fix the generic driver implementation to look more like modern python
+- [ ] Add type-hints and pydantic models for better input validation
+- [ ] Add unit-tests to quickly test the individual components themselves and not only in an end-to-end fashion

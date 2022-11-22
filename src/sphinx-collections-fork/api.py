@@ -1,5 +1,5 @@
-from sphinxcontrib.collections.collections import DRIVERS
-from sphinxcontrib.collections.drivers import Driver
+from sphinx_collections_fork.collections import DRIVERS
+from sphinx_collections_fork.drivers import Driver
 
 
 def register_driver(name, driver_class):

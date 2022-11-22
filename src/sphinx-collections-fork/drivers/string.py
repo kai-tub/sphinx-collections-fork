@@ -1,21 +1,21 @@
 import os
-from shutil import copyfile
 
-from sphinxcontrib.collections.drivers import Driver
+from sphinx_collections_fork.drivers import Driver
 
 
-class CopyFileDriver(Driver):
+class StringDriver(Driver):
     def run(self):
-        self.info("Copy file...")
+        self.info("Add string to file...")
 
-        if not os.path.exists(self.config["source"]):
-            self.error("Source {} does not exist".format(self.config["source"]))
+        if not isinstance(self.config["source"], str):
+            self.error("Source option must be a string. Nothing else.")
             return
 
         try:
-            copyfile(self.config["source"], self.config["target"])
+            with open(self.config["target"], "w") as target_file:
+                target_file.writelines(self.config["source"].split("\n"))
         except IOError as e:
-            self.error("Problems during copying file.", e)
+            self.error("Problems during writing string to file", e)
 
     def clean(self):
         try:

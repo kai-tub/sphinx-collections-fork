@@ -1,15 +1,9 @@
 import os
 
 import sphinx
-from pkg_resources import parse_version
+import logging
 
-sphinx_version = sphinx.__version__
-if parse_version(sphinx_version) >= parse_version("1.6"):
-    from sphinx.util import logging
-else:
-    import logging
-
-    logging.basicConfig()  # Only need to do this once
+logging.basicConfig()  # Only need to do this once
 
 
 class Driver:
@@ -53,11 +47,11 @@ class Driver:
         """
         if e is not None and isinstance(e, BaseException):
             if self.config["safe"]:
-                raise ColectionsDriverError("{}{}".format(self._prefix, message)) from e
+                raise CollectionsDriverError("{}{}".format(self._prefix, message)) from e
             self._log.error(("{}{} - {}".format(self._prefix, message, e)))
         else:
             if self.config["safe"]:
-                raise ColectionsDriverError("{}{}".format(self._prefix, message))
+                raise CollectionsDriverError("{}{}".format(self._prefix, message))
             self._log.error(("{}{}".format(self._prefix, message)))
 
     def info(self, message):
@@ -115,5 +109,5 @@ class Driver:
         return path
 
 
-class ColectionsDriverError(BaseException):
+class CollectionsDriverError(BaseException):
     pass

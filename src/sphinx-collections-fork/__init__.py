@@ -1,28 +1,24 @@
+import importlib.metadata
 import sphinx
-from pkg_resources import parse_version
+# from pkg_resources import parse_version
 
-from sphinxcontrib.collections.collections import (
+__version__ = importlib.metadata.version("sphinx_collections_fork")
+
+from sphinx_collections_fork.collections import (
     clean_collections,
     collect_collections,
     execute_collections,
     final_clean_collections,
 )
-from sphinxcontrib.collections.directives.if_collection import (
+from sphinx_collections_fork.directives.if_collection import (
     CollectionsIf,
     CollectionsIfDirective,
 )
 
-sphinx_version = sphinx.__version__
-if parse_version(sphinx_version) >= parse_version("1.6"):
-    from sphinx.util import logging
-else:
-    import logging
-
-    logging.basicConfig()  # Only need to do this once
+import logging
+logging.basicConfig()  # Only need to do this once
 
 LOG = logging.getLogger(__name__)
-VERSION = 0.1
-
 
 def setup(app):
     """

@@ -1,7 +1,7 @@
 import os
 from inspect import isfunction
 
-from sphinxcontrib.collections.drivers import Driver
+from sphinx_collections_fork.drivers import Driver
 
 
 class FunctionDriver(Driver):

@@ -1,6 +1,6 @@
 import os
 
-extensions = ["sphinxcontrib.collections"]
+extensions = ["sphinx_collections_fork"]
 
 collections = {"my_files": {"driver": "symlink", "source": "../config_symlink_data", "target": "my_data"}}
 

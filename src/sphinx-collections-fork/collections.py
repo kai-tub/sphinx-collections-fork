@@ -1,24 +1,19 @@
 import os
 
 import sphinx
-from pkg_resources import parse_version
+from sphinx_collections_fork.drivers.copy_file import CopyFileDriver
+from sphinx_collections_fork.drivers.copy_folder import CopyFolderDriver
+from sphinx_collections_fork.drivers.copy_folder.drivers.function import FunctionDriver
+from sphinx_collections_fork.drivers.git import GitDriver
+from sphinx_collections_fork.drivers.jinja import JinjaDriver
+from sphinx_collections_fork.drivers.report import ReportDriver
+from sphinx_collections_fork.drivers.string import StringDriver
+from sphinx_collections_fork.drivers.symlink import SymlinkDriver
 
-from sphinxcontrib.collections.drivers.copy_file import CopyFileDriver
-from sphinxcontrib.collections.drivers.copy_folder import CopyFolderDriver
-from sphinxcontrib.collections.drivers.function import FunctionDriver
-from sphinxcontrib.collections.drivers.git import GitDriver
-from sphinxcontrib.collections.drivers.jinja import JinjaDriver
-from sphinxcontrib.collections.drivers.report import ReportDriver
-from sphinxcontrib.collections.drivers.string import StringDriver
-from sphinxcontrib.collections.drivers.symlink import SymlinkDriver
+# TODO: Check if this is necessary!
+import logging
 
-sphinx_version = sphinx.__version__
-if parse_version(sphinx_version) >= parse_version("1.6"):
-    from sphinx.util import logging
-else:
-    import logging
-
-    logging.basicConfig()  # Only need to do this once
+logging.basicConfig()  # Only need to do this once
 
 LOG = logging.getLogger(__name__)
 COLLECTIONS = []
