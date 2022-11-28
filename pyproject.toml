@@ -7,6 +7,8 @@ authors = [
 ]
 dependencies = [
     "sphinx>=4",
+    "gitpython>=3.1.29",
+    "jinja2>=3.1.2",
 ]
 requires-python = ">=3.8"
 readme = "README.rst"
@@ -30,6 +32,3 @@ package-dir = "src"
 [tool.pdm.dev-dependencies]
 [tool.isort]
 profile = "black"
-
-[tool]
-[tool.pdm]

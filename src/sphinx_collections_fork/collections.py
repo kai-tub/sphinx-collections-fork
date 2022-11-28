@@ -3,7 +3,7 @@ import os
 import sphinx
 from sphinx_collections_fork.drivers.copy_file import CopyFileDriver
 from sphinx_collections_fork.drivers.copy_folder import CopyFolderDriver
-from sphinx_collections_fork.drivers.copy_folder.drivers.function import FunctionDriver
+from sphinx_collections_fork.drivers.function import FunctionDriver
 from sphinx_collections_fork.drivers.git import GitDriver
 from sphinx_collections_fork.drivers.jinja import JinjaDriver
 from sphinx_collections_fork.drivers.report import ReportDriver
@@ -49,7 +49,9 @@ def execute_collections(app, config):
             collection.run()
         except Exception as e:
             LOG.error(
-                "Error executing driver {} for collection {}. {}".format(collection.driver.name, collection.name, e)
+                "Error executing driver {} for collection {}. {}".format(
+                    collection.driver.name, collection.name, e
+                )
             )
 
 
@@ -77,7 +79,9 @@ class Collection:
 
         self._prefix = "  {}: ".format(self.name)
 
-        collection_main_folder = os.path.join(app.confdir, app.config["collections_target"])
+        collection_main_folder = os.path.join(
+            app.confdir, app.config["collections_target"]
+        )
 
         target = kwargs.get("target", None)
         if target is None:
@@ -129,7 +133,9 @@ class Collection:
                 "Target path abs: {}\n"
                 "Target path: {}\n"
                 "Sphinx app conf path: {}\n".format(
-                    os.path.abspath(target), os.path.realpath(target), os.path.realpath(app.confdir)
+                    os.path.abspath(target),
+                    os.path.realpath(target),
+                    os.path.realpath(app.confdir),
                 )
             )
 
